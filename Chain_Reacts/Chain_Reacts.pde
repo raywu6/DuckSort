@@ -3,8 +3,10 @@
 // HW53 -- All That Bouncin’ . . . Break!
 // W 2018-05-23
 
+import java.util.ArrayList;
+
 // ArrayList to hold all balls
-ArrayList<Ball> allBalls = new ArrayList<Ball>;
+ArrayList<Ball> allBalls = new ArrayList<Ball>();
 
 void setup() {
   size(600, 600); // creates 600x600 canvas
@@ -12,7 +14,7 @@ void setup() {
 
   // create 30 balls
   for (int i = 0; i < 30; i++) {
-    Ball newBall = new Ball(10);
+    Ball newBall = new Ball(100);
     allBalls.add(newBall);
   }
 }
