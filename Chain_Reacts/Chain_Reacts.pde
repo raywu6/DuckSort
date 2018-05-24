@@ -7,25 +7,16 @@ import java.util.ArrayList;
 
 // ArrayList to hold all balls
 ArrayList<Ball> allBalls = new ArrayList<Ball>();
-//Ball Ryan;
 
 void setup() {
   size(600, 600); // creates 600x600 canvas
   background(0);  // black background
-  //Ryan = new Ball(100);
+
   // create 30 balls
   for (int i = 0; i < 30; i++) {
     Ball newBall = new Ball(100);
-    //color c = color(newBall.rScale,newBall.gScale,newBall.bScale);
-    //fill(c);
-    //newBall.colorize();
     allBalls.add(newBall);
   }
-  /*  for (int j = 0; j < 1; j++) {
-   Ball newBall = new Ball(100);
-   allBalls.add(newBall);
-   }
-   */
 }
 
 boolean runOnce = true;
@@ -41,7 +32,6 @@ void draw() {
   }
   
   for (Ball b : allBalls) {
-    //Ryan.move();
     if (b.xPos <= 0 || b.xPos >= 600)
     { 
       b.xVelocity *= -1;
