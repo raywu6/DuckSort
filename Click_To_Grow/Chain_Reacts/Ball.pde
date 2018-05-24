@@ -5,6 +5,13 @@
 
 class Ball {
 
+  final static int MOVING = 0;
+  final static int GROWING = 1;
+  final static int SHRINKING = 2;
+  final static int DEAD = 3;
+  final float CHANGE_FACTOR = 0.25;
+  final float MAX_RADIUS = 25;
+  
   int radius, xVelocity, yVelocity, xPos, yPos;
   color RGB; // to hold RGB values
 
@@ -23,4 +30,6 @@ class Ball {
     fill(RGB);  // fill first time/when Ball constructed
     ellipse(xPos, yPos, radius/2, radius/2);
   }
+  
+  
 }
