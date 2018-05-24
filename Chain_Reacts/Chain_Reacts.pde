@@ -16,6 +16,9 @@ void setup() {
   // create 30 balls
   for (int i = 0; i < 30; i++) {
     Ball newBall = new Ball(100);
+    //color c = color(newBall.rScale,newBall.gScale,newBall.bScale);
+    //fill(c);
+    //newBall.colorize();
     allBalls.add(newBall);
   }
   /*  for (int j = 0; j < 1; j++) {
@@ -25,9 +28,18 @@ void setup() {
    */
 }
 
+boolean runOnce = true;
 void draw() {
-
   clear();
+  
+  if (runOnce) {
+    for (Ball b : allBalls) {
+      println(b.c);
+    }
+    println(allBalls.get(29).c);
+    runOnce=false;
+  }
+  
   for (Ball b : allBalls) {
     //Ryan.move();
     if (b.xPos <= 0 || b.xPos >= 600)
