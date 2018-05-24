@@ -5,22 +5,22 @@
 
 class Ball {
 
-  int radius, xVelocity, yVelocity, xPos, yPos, rScale, gScale, bScale;
-  color c;
-  // ^^^ color will hold rScale, gScale, bScale ^^^
+  int radius, xVelocity, yVelocity, xPos, yPos;
+  color RGB; // to hold RGB values
+
   Ball(int r) {
     radius = r;
-    rScale = (int)(random(256));
-    gScale = (int)(random(256));
-    bScale = (int)(random(256));
     xVelocity = (int)(random(24)+1);
     yVelocity = (int)(random(24)+1);
     xPos = (int)(random(600));
     yPos = (int)(random(600));
-
-    c = color(rScale,gScale,bScale);
-    fill(c);
     
+    int rScale = (int)(random(256));
+    int gScale = (int)(random(256));
+    int bScale = (int)(random(256));
+    RGB = color(rScale, gScale,bScale);
+    
+    fill(RGB);  // fill first time/when Ball constructed
     ellipse(xPos, yPos, radius/2, radius/2);
   }
 }

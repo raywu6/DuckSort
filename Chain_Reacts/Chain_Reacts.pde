@@ -23,6 +23,7 @@ boolean runOnce = true;
 void draw() {
   clear();
   
+  /*
   if (runOnce) {
     for (Ball b : allBalls) {
       println(b.c);
@@ -30,8 +31,11 @@ void draw() {
     println(allBalls.get(29).c);
     runOnce=false;
   }
+  */
   
   for (Ball b : allBalls) {
+    
+    
     if (b.xPos <= 0 || b.xPos >= 600)
     { 
       b.xVelocity *= -1;
@@ -40,6 +44,9 @@ void draw() {
     { 
       b.yVelocity *= -1;
     }
+    
+    fill(b.RGB);  // if this is not here, 
+    //               next line will create ellipse using colors from last Ball created
     ellipse(b.xPos, b.yPos, b.radius/2, b.radius/2);
     b.xPos += b.xVelocity;
     b.yPos += b.yVelocity;
