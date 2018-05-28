@@ -48,7 +48,7 @@ class Ball {
   }
 
   void updateState(Ball a) {
-    if (a.state == MOVING && this.state == GROWING && (pow(a.xPos - this.xPos,2) + pow(a.yPos - this.yPos,2) <= pow(a.radius - this.radius,2)))
+    if (a.state == MOVING && (pow(a.xPos - this.xPos,2) + pow(a.yPos - this.yPos,2) <= pow(a.radius - this.radius,2)))
     {
       a.state = GROWING;
     }
