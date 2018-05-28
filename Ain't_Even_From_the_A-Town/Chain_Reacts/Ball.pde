@@ -48,17 +48,17 @@ class Ball {
   }
 
   void updateState(Ball a) {
-    if (a.state == 0 && dist(a.xPos, a.yPos, this.xPos, this.yPos) == a.radius+this.radius && this.state == 1)
+    if (a.state == MOVING && this.state == GROWING && (pow(a.xPos - this.xPos,2) + pow(a.yPos - this.yPos,2) <= pow(a.radius - this.radius,2)))
     {
-      a.state = 1;
+      a.state = GROWING;
     }
-    if (a.state == 1 && a.radius == MAX_RADIUS)
+    if (a.state == GROWING && a.radius == MAX_RADIUS)
     {
-      a.state = 2;
+      a.state = SHRINKING;
     }
     if (a.radius == 0)
     {
-      a.state = 3;
+      a.state = DEAD;
     }
   }
 }

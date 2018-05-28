@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 // ArrayList to hold all balls
 ArrayList<Ball> allBalls = new ArrayList<Ball>();
+ArrayList<Ball> growBalls = new ArrayList<Ball>();
 
 void setup() {
   size(600, 600); // creates 600x600 canvas
@@ -69,8 +70,9 @@ void draw() {
       //allBalls.remove(b);
       b.RGB = color(0, 0, 0);
     }
-
-    b.updateState(b);
+    for(Ball ball : growBalls ){
+      ball.updateState(b);
+    }
   }
 }
 
@@ -78,4 +80,5 @@ void mouseClicked() {
   Ball mouseBall = new Ball(mouseX, mouseY, 0);
   mouseBall.setState(1);
   allBalls.add(mouseBall);
+  growBalls.add(mouseBall);
 }
