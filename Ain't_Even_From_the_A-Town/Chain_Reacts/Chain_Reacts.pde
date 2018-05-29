@@ -40,12 +40,12 @@ void draw() {
     fill(b.RGB);  // if this is not here, next line will create ellipse using colors from last Ball created
     ellipse(b.xPos, b.yPos, b.radius/2, b.radius/2);  
 
-    if (b.state == 0) {
-      if (b.xPos <= 0 || b.xPos >= 600)
+    if (b.state == 0) {  // if ball is moving
+      if (b.xPos <= 0 || b.xPos >= 600)  // hit wall
       { 
         b.xVelocity *= -1;
       }
-      if (b.yPos <= 0 || b.yPos >= 600)
+      if (b.yPos <= 0 || b.yPos >= 600)  // hit wall
       { 
         b.yVelocity *= -1;
       }
@@ -54,21 +54,21 @@ void draw() {
       b.yPos += b.yVelocity;
     }
 
-    if (b.state == 1) {
-      b.xVelocity = 0;
+    if (b.state == 1) {  // if ball is growing
+      b.xVelocity = 0;   // stop moving
       b.yVelocity = 0;
-      b.radius += b.CHANGE_FACTOR;
+      b.radius += b.CHANGE_FACTOR;   // grow ball
     }    
 
-    if (b.state == 2) {
-      b.xVelocity = 0;
+    if (b.state == 2) {  // if ball is shrinking
+      b.xVelocity = 0;   // stop moving
       b.yVelocity = 0;
-      b.radius -= b.CHANGE_FACTOR;
+      b.radius -= b.CHANGE_FACTOR;  // shrink ball
     }    
 
-    if (b.state == 3) {
+    if (b.state == 3) {   // if ball is dead
       //allBalls.remove(b);
-      b.RGB = color(0, 0, 0);
+      b.RGB = color(0, 0, 0);  // make black
     }
     for(Ball ball : growBalls ){
       ball.updateState(b);
